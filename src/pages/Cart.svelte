@@ -1,4 +1,5 @@
 <script>
+  import { push } from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
   import { cart } from "./store/cart.store";
   //   $cart = [
@@ -53,7 +54,9 @@
         <div class="">Grand Total</div>
         <div class="text-xl font-bold ">$3000</div>
       </div>
-      <button class="btn">Pay and Check out > </button>
+      <button on:click={() => push("/thankyou")} class="btn"
+        >Pay and Check out >
+      </button>
     </div>
   </div>
 </section>

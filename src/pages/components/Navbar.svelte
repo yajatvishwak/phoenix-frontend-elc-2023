@@ -7,7 +7,7 @@
   <div class="flex gap-7 items-center">
     <div class="flex flex-col items-end">
       <div class="font-bold">Hi, Yajat</div>
-      <div>Mock Website</div>
+      <div>Mock Store Website</div>
     </div>
 
     <img

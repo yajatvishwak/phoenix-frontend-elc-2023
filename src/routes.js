@@ -6,6 +6,7 @@ import Preference from "./pages/Preference.svelte";
 import Cart from "./pages/Cart.svelte";
 import Preview from "./pages/Preview.svelte";
 import Share from "./pages/Share.svelte";
+import Thankyou from "./pages/Thankyou.svelte";
 
 const routes = {
   "/preference": Preference,
@@ -13,6 +14,7 @@ const routes = {
   "/products": ProductDisplay,
   "/preview": Preview,
   "/shared/:id": Share,
+  "/thankyou": Thankyou,
   "*": Recorder,
 };
 export default routes;

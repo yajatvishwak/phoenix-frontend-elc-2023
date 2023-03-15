@@ -347,7 +347,7 @@
       if (foundation)
         return {
           itemID: foundation.shadeCode,
-          name: foundation.shadeName + " -- " + foundation.shadeCode,
+          name: foundation.shadeName + ",   " + foundation.shadeCode,
           price: 64,
           description: "A foundation",
           img: foundation.img || "https://via.placeholder.com/150",
@@ -397,15 +397,19 @@
     );
     ctrl.DEBUG = true;
     ctrl.addCommand("hello", () => {
+      ctrl.stop();
       startRecording();
       setTimeout(() => {
+        ctrl.start();
         stopRecording();
       }, 5000);
     });
     ctrl.addCommand("hi", () => {
+      ctrl.stop();
       startRecording();
       setTimeout(() => {
         stopRecording();
+        ctrl.start();
       }, 5000);
     });
     ctrl.addCommand("checkout", async () => {
@@ -453,7 +457,7 @@
     }
   }
 
-  async function addToCart(itemID, touchCTRL) {
+  async function addToCart(itemID, touchCTRL = true) {
     //find the item in the data
     console.log("itemID", itemID);
     if (!itemID) {
