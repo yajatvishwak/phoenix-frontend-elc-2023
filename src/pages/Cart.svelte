@@ -4,6 +4,14 @@
   import Navbar from "./components/Navbar.svelte";
   import { playDialogue } from "./listener/speak";
   import { cart } from "./store/cart.store";
+  import Helpbox from "./components/Helpbox.svelte";
+  let helpboxOpen = true;
+  let availableControls = [
+    {
+      command: "Back",
+      description: "Goes back to the previous page",
+    },
+  ];
   onMount(async () => {
     await playDialogue("Complete your purchase");
     setTimeout(async () => {
@@ -15,6 +23,7 @@
 
 <section class="flex flex-col min-h-screen h-full p-10">
   <Navbar />
+  <Helpbox commands={availableControls} bind:helpboxOpen />
 
   <div
     class="flex flex-col justify-center items-center h-full    flex-1

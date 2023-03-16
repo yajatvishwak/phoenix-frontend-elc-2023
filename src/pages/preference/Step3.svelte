@@ -10,266 +10,267 @@
   import wordsToNumbers from "word-to-numbers";
   import { push } from "svelte-spa-router";
   import { suggestions } from "../store/suggestions.store";
+  import Helpbox from "../components/Helpbox.svelte";
   let ctrl = new anycontrol();
   export let prevStep = () => {};
 
-  $suggestions = {
-    image: "image.png",
-    makeup: {
-      skinColorHex: "92796e",
-      skinUndertone: "Warm",
-      suggestedConcealer: {
-        darkColor: [
-          {
-            concealerCode: "6w",
-            concealerHex: "B07255",
-            concealerIntensity: "Extra Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 10.111346656288491,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE19_640x640_0.jpg",
-          },
-          {
-            concealerCode: "5w",
-            concealerHex: "B97E57",
-            concealerIntensity: "Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 12.303776105533213,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
-          },
-        ],
-        lightColor: [
-          {
-            concealerCode: "5w",
-            concealerHex: "B97E57",
-            concealerIntensity: "Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 12.303776105533213,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
-          },
-          {
-            concealerCode: "4w",
-            concealerHex: "CB9870",
-            concealerIntensity: "Medium Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 19.400438251082438,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE15_640x640_0.jpg",
-          },
-          {
-            concealerCode: "3w",
-            concealerHex: "E4AA68",
-            concealerIntensity: "Medium",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 25.306066828730415,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE09_640x640_0.jpg",
-          },
-        ],
-        skinColor: [
-          {
-            concealerCode: "6w",
-            concealerHex: "B07255",
-            concealerIntensity: "Extra Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 10.111346656288491,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE19_640x640_0.jpg",
-          },
-          {
-            concealerCode: "5w",
-            concealerHex: "B97E57",
-            concealerIntensity: "Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 12.303776105533213,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
-          },
-          {
-            concealerCode: "4w",
-            concealerHex: "CB9870",
-            concealerIntensity: "Medium Deep",
-            concealerName: "Double Wear Radiant Concealer",
-            concealerUndertone: "Warm",
-            distance: 19.400438251082438,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE15_640x640_0.jpg",
-          },
-        ],
-      },
-      suggestedFoundation: [
-        {
-          colorDetails: {
-            shadeCode: "6w1",
-            shadeHex: "9C633A",
-            shadeName: "Sandalwood",
-            shadeSkinType: "Deep",
-            shadeUndertone: "Warm",
-          },
-          distance: 13.482330073343302,
-        },
-        {
-          colorDetails: {
-            shadeCode: "6w2",
-            shadeHex: "915A32",
-            shadeName: "Nutmeg",
-            shadeSkinType: "Deep",
-            shadeUndertone: "Warm",
-          },
-          distance: 14.744389913109403,
-        },
-        {
-          colorDetails: {
-            shadeCode: "5n1.5",
-            shadeHex: "A76739",
-            shadeName: "Maple",
-            shadeSkinType: "Deep",
-            shadeUndertone: "Neutral",
-          },
-          distance: 15.938865732405974,
-        },
-      ],
-      suggestedLipstick: {
-        coral: [
-          {
-            distance: 6.47336011257459,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW50_640x640_0.jpg",
-            lipstickCode: "570",
-            lipstickHex: "A15642",
-            lipstickName: "Fiercely, Pure Color Matte Lipstick",
-            lipstickType: "Coral",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 10.788680771398555,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW26_640x640_0.jpg",
-            lipstickCode: "681",
-            lipstickHex: "A15D54",
-            lipstickName: "Lure you in, Pure Color Matte Lipstick",
-            lipstickType: "Coral",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 12.517938716250915,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW44_640x640_0.jpg",
-            lipstickCode: "557",
-            lipstickHex: "A3504E",
-            lipstickName: "Fragile Ego, Pure Color Matte Lipstick",
-            lipstickType: "Coral",
-            lipstickUndertone: "Warm",
-          },
-        ],
-        mauve: [
-          {
-            distance: 16.075784908115335,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT18_640x640_0.jpg",
-            lipstickCode: "561",
-            lipstickHex: "AA6B6D",
-            lipstickName: "Intense Nude",
-            lipstickType: "Mauve",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 17.336076277417668,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW05_640x640_0.jpg",
-            lipstickCode: "669",
-            lipstickHex: "AF5F66",
-            lipstickName: "Stolen heart",
-            lipstickType: "Mauve",
-            lipstickUndertone: "Warm",
-          },
-        ],
-        nude: [
-          {
-            distance: 12.271392566198948,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT14_640x640_0.jpg",
-            lipstickCode: "818",
-            lipstickHex: "A5665E",
-            lipstickName: "Covetable",
-            lipstickType: "Nude",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 13.685234394437849,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW14_640x640_0.jpg",
-            lipstickCode: "829",
-            lipstickHex: "9C706B",
-            lipstickName: "Expose, Pure Color Matte Lipstick",
-            lipstickType: "Nude",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 15.452506130631578,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW51_640x640_0.jpg",
-            lipstickCode: "867",
-            lipstickHex: "81423B",
-            lipstickName: "Knowing, Pure Color Matte Lipstick",
-            lipstickType: "Nude",
-            lipstickUndertone: "Warm",
-          },
-        ],
-        pink: [
-          {
-            distance: 16.99982725819526,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW01_640x640_0.jpg",
-            lipstickCode: "856",
-            lipstickHex: "A64A55",
-            lipstickName: "Object of Desire, Pure color matte lipstick,",
-            lipstickType: "Pink",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 17.515781157937205,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT57_640x640_0.jpg",
-            lipstickCode: "131",
-            lipstickHex: "B04D56",
-            lipstickName: "Bois De Rose",
-            lipstickType: "Pink",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 24.051988761004228,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT23_640x640_0.jpg",
-            lipstickCode: "260",
-            lipstickHex: "CA6674",
-            lipstickName: "Eccentric",
-            lipstickType: "Pink",
-            lipstickUndertone: "Warm",
-          },
-        ],
-        red: [
-          {
-            distance: 16.794186413841988,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW27_640x640_0.jpg",
-            lipstickCode: "699",
-            lipstickHex: "AD2D2F",
-            lipstickName: "Thrill me, Pure Color Matte Lipstick",
-            lipstickType: "Red",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 19.016813052772385,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW49_640x640_0.jpg",
-            lipstickCode: "569",
-            lipstickHex: "8F252B",
-            lipstickName: "Fearless, Pure Color Matte Lipstick",
-            lipstickType: "Red",
-            lipstickUndertone: "Warm",
-          },
-          {
-            distance: 27.344283336543263,
-            img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW30_640x640_0.jpg",
-            lipstickCode: "667",
-            lipstickHex: "C92335",
-            lipstickName: "Deny all, Pure Color Matte Lipstick",
-            lipstickType: "Red",
-            lipstickUndertone: "Warm",
-          },
-        ],
-      },
-    },
-  };
+  // $suggestions = {
+  //   image: "image.png",
+  //   makeup: {
+  //     skinColorHex: "92796e",
+  //     skinUndertone: "Warm",
+  //     suggestedConcealer: {
+  //       darkColor: [
+  //         {
+  //           concealerCode: "6w",
+  //           concealerHex: "B07255",
+  //           concealerIntensity: "Extra Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 10.111346656288491,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE19_640x640_0.jpg",
+  //         },
+  //         {
+  //           concealerCode: "5w",
+  //           concealerHex: "B97E57",
+  //           concealerIntensity: "Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 12.303776105533213,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
+  //         },
+  //       ],
+  //       lightColor: [
+  //         {
+  //           concealerCode: "5w",
+  //           concealerHex: "B97E57",
+  //           concealerIntensity: "Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 12.303776105533213,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
+  //         },
+  //         {
+  //           concealerCode: "4w",
+  //           concealerHex: "CB9870",
+  //           concealerIntensity: "Medium Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 19.400438251082438,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE15_640x640_0.jpg",
+  //         },
+  //         {
+  //           concealerCode: "3w",
+  //           concealerHex: "E4AA68",
+  //           concealerIntensity: "Medium",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 25.306066828730415,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE09_640x640_0.jpg",
+  //         },
+  //       ],
+  //       skinColor: [
+  //         {
+  //           concealerCode: "6w",
+  //           concealerHex: "B07255",
+  //           concealerIntensity: "Extra Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 10.111346656288491,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE19_640x640_0.jpg",
+  //         },
+  //         {
+  //           concealerCode: "5w",
+  //           concealerHex: "B97E57",
+  //           concealerIntensity: "Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 12.303776105533213,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE17_640x640_0.jpg",
+  //         },
+  //         {
+  //           concealerCode: "4w",
+  //           concealerHex: "CB9870",
+  //           concealerIntensity: "Medium Deep",
+  //           concealerName: "Double Wear Radiant Concealer",
+  //           concealerUndertone: "Warm",
+  //           distance: 19.400438251082438,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PCCE15_640x640_0.jpg",
+  //         },
+  //       ],
+  //     },
+  //     suggestedFoundation: [
+  //       {
+  //         colorDetails: {
+  //           shadeCode: "6w1",
+  //           shadeHex: "9C633A",
+  //           shadeName: "Sandalwood",
+  //           shadeSkinType: "Deep",
+  //           shadeUndertone: "Warm",
+  //         },
+  //         distance: 13.482330073343302,
+  //       },
+  //       {
+  //         colorDetails: {
+  //           shadeCode: "6w2",
+  //           shadeHex: "915A32",
+  //           shadeName: "Nutmeg",
+  //           shadeSkinType: "Deep",
+  //           shadeUndertone: "Warm",
+  //         },
+  //         distance: 14.744389913109403,
+  //       },
+  //       {
+  //         colorDetails: {
+  //           shadeCode: "5n1.5",
+  //           shadeHex: "A76739",
+  //           shadeName: "Maple",
+  //           shadeSkinType: "Deep",
+  //           shadeUndertone: "Neutral",
+  //         },
+  //         distance: 15.938865732405974,
+  //       },
+  //     ],
+  //     suggestedLipstick: {
+  //       coral: [
+  //         {
+  //           distance: 6.47336011257459,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW50_640x640_0.jpg",
+  //           lipstickCode: "570",
+  //           lipstickHex: "A15642",
+  //           lipstickName: "Fiercely, Pure Color Matte Lipstick",
+  //           lipstickType: "Coral",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 10.788680771398555,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW26_640x640_0.jpg",
+  //           lipstickCode: "681",
+  //           lipstickHex: "A15D54",
+  //           lipstickName: "Lure you in, Pure Color Matte Lipstick",
+  //           lipstickType: "Coral",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 12.517938716250915,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW44_640x640_0.jpg",
+  //           lipstickCode: "557",
+  //           lipstickHex: "A3504E",
+  //           lipstickName: "Fragile Ego, Pure Color Matte Lipstick",
+  //           lipstickType: "Coral",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //       ],
+  //       mauve: [
+  //         {
+  //           distance: 16.075784908115335,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT18_640x640_0.jpg",
+  //           lipstickCode: "561",
+  //           lipstickHex: "AA6B6D",
+  //           lipstickName: "Intense Nude",
+  //           lipstickType: "Mauve",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 17.336076277417668,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW05_640x640_0.jpg",
+  //           lipstickCode: "669",
+  //           lipstickHex: "AF5F66",
+  //           lipstickName: "Stolen heart",
+  //           lipstickType: "Mauve",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //       ],
+  //       nude: [
+  //         {
+  //           distance: 12.271392566198948,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT14_640x640_0.jpg",
+  //           lipstickCode: "818",
+  //           lipstickHex: "A5665E",
+  //           lipstickName: "Covetable",
+  //           lipstickType: "Nude",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 13.685234394437849,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW14_640x640_0.jpg",
+  //           lipstickCode: "829",
+  //           lipstickHex: "9C706B",
+  //           lipstickName: "Expose, Pure Color Matte Lipstick",
+  //           lipstickType: "Nude",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 15.452506130631578,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW51_640x640_0.jpg",
+  //           lipstickCode: "867",
+  //           lipstickHex: "81423B",
+  //           lipstickName: "Knowing, Pure Color Matte Lipstick",
+  //           lipstickType: "Nude",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //       ],
+  //       pink: [
+  //         {
+  //           distance: 16.99982725819526,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW01_640x640_0.jpg",
+  //           lipstickCode: "856",
+  //           lipstickHex: "A64A55",
+  //           lipstickName: "Object of Desire, Pure color matte lipstick,",
+  //           lipstickType: "Pink",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 17.515781157937205,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT57_640x640_0.jpg",
+  //           lipstickCode: "131",
+  //           lipstickHex: "B04D56",
+  //           lipstickName: "Bois De Rose",
+  //           lipstickType: "Pink",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 24.051988761004228,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFT23_640x640_0.jpg",
+  //           lipstickCode: "260",
+  //           lipstickHex: "CA6674",
+  //           lipstickName: "Eccentric",
+  //           lipstickType: "Pink",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //       ],
+  //       red: [
+  //         {
+  //           distance: 16.794186413841988,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW27_640x640_0.jpg",
+  //           lipstickCode: "699",
+  //           lipstickHex: "AD2D2F",
+  //           lipstickName: "Thrill me, Pure Color Matte Lipstick",
+  //           lipstickType: "Red",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 19.016813052772385,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW49_640x640_0.jpg",
+  //           lipstickCode: "569",
+  //           lipstickHex: "8F252B",
+  //           lipstickName: "Fearless, Pure Color Matte Lipstick",
+  //           lipstickType: "Red",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //         {
+  //           distance: 27.344283336543263,
+  //           img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW30_640x640_0.jpg",
+  //           lipstickCode: "667",
+  //           lipstickHex: "C92335",
+  //           lipstickName: "Deny all, Pure Color Matte Lipstick",
+  //           lipstickType: "Red",
+  //           lipstickUndertone: "Warm",
+  //         },
+  //       ],
+  //     },
+  //   },
+  // };
   let data = {
     foundations: [
       // {
@@ -313,6 +314,8 @@
       // },
     ],
   };
+  let helpboxOpen = true;
+  let availableControls = [];
 
   onMount(async () => {
     console.log($suggestions);
@@ -473,9 +476,9 @@
       ctrl.start();
     });
     ctrl.addCommand("foundation", async () => {
-      let ld = $suggestions.makeup.suggestedFoundation.map(
-        (l) => l.shadeCode + ", " + l.shadeName
-      );
+      let ld = [
+        ...$suggestions.makeup.suggestedFoundation.map((f) => f.colorDetails),
+      ].map((f) => f.shadeCode + ", " + f.shadeName);
       ctrl.stop();
       for (let l of ld) {
         await playDialogue(l);
@@ -514,6 +517,28 @@
     });
     ctrl.start();
   });
+  availableControls = [
+    {
+      command: "Hi, Hello",
+      description: "Wake word to add items to cart",
+    },
+    {
+      command: "Next, Checkout",
+      description: "To checkout",
+    },
+    {
+      command: "Red, Pink, Mauve, Coral, Nude",
+      description: "To get lipstick suggestions",
+    },
+    {
+      command: "Foundation",
+      description: "To get foundation suggestions",
+    },
+    {
+      command: "Dark Concealer, Light Concealer, Skin Concealer",
+      description: "To get concealer suggestions",
+    },
+  ];
 
   function checkInventory(usersaid) {
     usersaid = wordsToNumbers(usersaid.toLowerCase());
@@ -599,6 +624,8 @@
 </script>
 
 <div>
+  <Helpbox commands={availableControls} bind:helpboxOpen />
+
   <div class="flex justify-between px-96 items-center">
     <div class="newfont text-3xl ">Choose items you want to add to cart</div>
   </div>

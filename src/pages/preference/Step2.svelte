@@ -1,6 +1,10 @@
 <script>
   // @ts-nocheck
 
+  import Helpbox from "../components/Helpbox.svelte";
+
+  // @ts-nocheck
+
   import { onMount } from "svelte";
   import { playDialogue } from "../listener/speak";
   import { animateScroll } from "svelte-scrollto-element";
@@ -273,6 +277,20 @@
   let pinkHighlight = false;
   let mauveHighlight = false;
   let nudeHighlight = false;
+  let helpboxOpen = true;
+  let availableControls = [];
+  availableControls = [
+    {
+      command: "Products, show, next",
+      description: "Shows recommended products based on your suggestions",
+    },
+    { command: "Back, retake", description: "Goes back to retake picture" },
+    {
+      command: "Share",
+      description:
+        "Shares suggestion report with preview to your saved contact",
+    },
+  ];
   function removeNull(array) {
     return array.filter((x) => x !== null);
   }
@@ -505,14 +523,13 @@
         if (i == 10) highlight("corallip");
         if (i == 11) highlight("nudelip");
       }
-      await playDialogue(
-        "There's a few things you can do, ask me to preview or share your results"
-      );
-      await playDialogue(
-        "I can also show you the recommended products or help you retake the picture for a better result"
-      );
+
       let ctrl = new anycontrol();
       ctrl.DEBUG = true;
+      ctrl.addCommand("commands", () => {
+        ctrl.stop();
+        helpboxOpen = true;
+      });
       ctrl.addCommand("products", () => {
         ctrl.stop();
         nextStep();
@@ -543,6 +560,7 @@
           "We've shared your results with your saved contacts"
         );
       });
+
       ctrl.start();
     }
   });
@@ -614,6 +632,9 @@
       <div class="text-2xl animate-pulse">Analysing your skin...</div>
     </div>
   {:else}
+    {#if !isShared}
+      <Helpbox commands={availableControls} bind:helpboxOpen />
+    {/if}
     <div class="grid grid-cols-2 gap-14 mt-20">
       <div class="flex flex-col justify-center items-center gap-4 ">
         <div class="max-w-lg">
