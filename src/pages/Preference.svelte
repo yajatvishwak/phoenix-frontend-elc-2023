@@ -10,10 +10,10 @@
   import Step3 from "./preference/Step3.svelte";
   import { suggestions } from "./store/suggestions.store";
 
-  let currentStep = 0;
+  let currentStep = 2;
   onMount(() => {
     initVoice();
-    if (Object.keys($suggestions).length !== 0) currentStep = 1;
+    // if (Object.keys($suggestions).length !== 0) currentStep = 1;
   });
 
   function nextStep() {

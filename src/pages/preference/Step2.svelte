@@ -273,9 +273,21 @@
   let pinkHighlight = false;
   let mauveHighlight = false;
   let nudeHighlight = false;
-
+  function removeNull(array) {
+    return array.filter((x) => x !== null);
+  }
   onMount(async () => {
     console.log(dialogues);
+
+    $suggestions.makeup.suggestedConcealer.darkColor = removeNull(
+      $suggestions.makeup.suggestedConcealer.darkColor
+    );
+    $suggestions.makeup.suggestedConcealer.lightColor = removeNull(
+      $suggestions.makeup.suggestedConcealer.lightColor
+    );
+    $suggestions.makeup.suggestedConcealer.skinColor = removeNull(
+      $suggestions.makeup.suggestedConcealer.skinColor
+    );
 
     if (!isShared) {
       loading = true;
@@ -314,13 +326,41 @@
         );
 
         skintoneDialogue.push(
-          "We've also picked out darker and lighter concealer shades for you"
+          "We've also picked out darker, " +
+            $suggestions.makeup.suggestedConcealer.darkColor[0].concealerCode +
+            " and lighter, " +
+            $suggestions.makeup.suggestedConcealer.lightColor[0].concealerCode +
+            " concealer shades for you"
         );
         skintoneDialogue.push(
-          "The lipstick that goes along with your skin tone is the " +
+          "The red lipstick that goes along with your skin tone is the " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickCode +
             " " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The mauve lipstick that suits you is the " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The pink lipstick that looks good on you is the " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The coral lipstick that you could rock is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The nude lipstick that you could use everyday is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
         );
       } else if ($suggestions.makeup.skinUndertone === "Cool") {
         skintoneDialogue.push("You have a cool undertone");
@@ -351,13 +391,41 @@
         );
 
         skintoneDialogue.push(
-          "We've also picked out darker and lighter concealer shades for you"
+          "We've also picked out darker, " +
+            $suggestions.makeup.suggestedConcealer.darkColor[0].concealerCode +
+            " and lighter, " +
+            $suggestions.makeup.suggestedConcealer.lightColor[0].concealerCode +
+            " concealer shades for you"
         );
         skintoneDialogue.push(
-          "The lipstick that goes along with your skin tone is the " +
+          "The red lipstick that goes along with your skin tone is the " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickCode +
             " " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The mauve lipstick that suits you is the " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The pink lipstick that looks good on you is the " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The coral lipstick that you could rock is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The nude lipstick that you could use everyday is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
         );
       } else {
         skintoneDialogue.push("You have a neutral undertone");
@@ -388,27 +456,57 @@
         );
 
         skintoneDialogue.push(
-          "We've also picked out darker and lighter concealer shades for you"
+          "We've also picked out darker, " +
+            $suggestions.makeup.suggestedConcealer.darkColor[0].concealerCode +
+            " and lighter, " +
+            $suggestions.makeup.suggestedConcealer.lightColor[0].concealerCode +
+            " concealer shades for you"
         );
         skintoneDialogue.push(
-          "The lipstick that goes along with your skin tone is the " +
+          "The red lipstick that goes along with your skin tone is the " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickCode +
             " " +
             $suggestions.makeup.suggestedLipstick.red[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The mauve lipstick that suits you is the " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.mauve[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The pink lipstick that looks good on you is the " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.pink[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The coral lipstick that you could rock is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+        );
+        skintoneDialogue.push(
+          "The nude lipstick that you could use everyday is the " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            " " +
+            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
         );
       }
       for (let i = 0; i < skintoneDialogue.length; i++) {
         await playDialogue(skintoneDialogue[i]);
         if (i == 4) highlight("foundation");
         if (i == 5) highlight("skinconcealer");
-        if (i == 6) {
-          highlight("darkconcealer");
-          highlight("lightconcealer");
-        }
+        if (i == 6) highlight("darkconcealer");
+        if (i == 6) highlight("lightconcealer");
         if (i == 7) highlight("redlip");
+        if (i == 8) highlight("mauvelip");
+        if (i == 9) highlight("pinklip");
+        if (i == 10) highlight("corallip");
+        if (i == 11) highlight("nudelip");
       }
       await playDialogue(
-        "There's a few things you can do, ask me to show you the products, or ask me to preview or share your results"
+        "There's a few things you can do, ask me to preview or share your results"
       );
       await playDialogue(
         "I can also show you the recommended products or help you retake the picture for a better result"

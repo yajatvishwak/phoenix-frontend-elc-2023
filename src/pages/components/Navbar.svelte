@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex justify-between p-10 ">
-  <div class="text-3xl"><img src="logo.webp" class="w-64" alt="" /></div>
+  <img src="logo.webp" class="w-64" alt="" />
   <div class="flex gap-7 items-center">
     <div class="flex flex-col items-end">
       <div class="font-bold">Hi, Yajat</div>

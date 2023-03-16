@@ -1,16 +1,16 @@
 <script>
   import { push } from "svelte-spa-router";
+  import { onMount } from "svelte";
   import Navbar from "./components/Navbar.svelte";
+  import { playDialogue } from "./listener/speak";
   import { cart } from "./store/cart.store";
-  //   $cart = [
-  //     {
-  //         "itemID": 2,
-  //         "name": "Concealer 1",
-  //         "price": 1000,
-  //         "description": "A concealer",
-  //         "img": "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_PCCE09_558x768_0.jpg"
-  //     }
-  // ]
+  onMount(async () => {
+    await playDialogue("Complete your purchase");
+    setTimeout(async () => {
+      await playDialogue("Your Payment has been processed");
+      push("/thankyou");
+    }, 4000);
+  });
 </script>
 
 <section class="flex flex-col min-h-screen h-full p-10">
@@ -52,7 +52,13 @@
     <div class="flex justify-between items-center w-full max-w-xl">
       <div>
         <div class="">Grand Total</div>
-        <div class="text-xl font-bold ">$3000</div>
+        <div class="text-xl font-bold ">
+          $
+          {$cart.reduce(
+            (accumulator, current) => accumulator + Number(current["price"]),
+            0
+          )}
+        </div>
       </div>
       <button on:click={() => push("/thankyou")} class="btn"
         >Pay and Check out >

@@ -20,7 +20,6 @@
       skinUndertone: "Warm",
       suggestedConcealer: {
         darkColor: [
-          null,
           {
             concealerCode: "6w",
             concealerHex: "B07255",
@@ -176,7 +175,7 @@
             img: "https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GRFW05_640x640_0.jpg",
             lipstickCode: "669",
             lipstickHex: "AF5F66",
-            lipstickName: "Stolen heart, Pure Color Matte Lipstick",
+            lipstickName: "Stolen heart",
             lipstickType: "Mauve",
             lipstickUndertone: "Warm",
           },
@@ -337,7 +336,7 @@
       if (concealer)
         return {
           itemID: concealer.concealerCode,
-          name: concealer.concealerCode + ", " + concealer.concealerIntensity,
+          name: concealer.concealerIntensity,
           price: 32,
           description: "A concealer",
           img: concealer.img,
@@ -347,8 +346,8 @@
       if (foundation)
         return {
           itemID: foundation.shadeCode,
-          name: foundation.shadeName + ",   " + foundation.shadeCode,
-          price: 64,
+          name: foundation.shadeName,
+          price: 48,
           description: "A foundation",
           img: foundation.img || "https://via.placeholder.com/150",
         };
@@ -422,6 +421,96 @@
       ctrl.stop();
 
       push("/cart");
+    });
+    ctrl.addCommand("red", async () => {
+      let ld = $suggestions.makeup.suggestedLipstick.red.map(
+        (l) => l.lipstickCode + ", " + l.lipstickName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("pink", async () => {
+      let ld = $suggestions.makeup.suggestedLipstick.pink.map(
+        (l) => l.lipstickCode + ", " + l.lipstickName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("mauve", async () => {
+      let ld = $suggestions.makeup.suggestedLipstick.mauve.map(
+        (l) => l.lipstickCode + ", " + l.lipstickName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("coral", async () => {
+      let ld = $suggestions.makeup.suggestedLipstick.coral.map(
+        (l) => l.lipstickCode + ", " + l.lipstickName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("nude", async () => {
+      let ld = $suggestions.makeup.suggestedLipstick.nude.map(
+        (l) => l.lipstickCode + ", " + l.lipstickName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("foundation", async () => {
+      let ld = $suggestions.makeup.suggestedFoundation.map(
+        (l) => l.shadeCode + ", " + l.shadeName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("dark concealer", async () => {
+      let ld = $suggestions.makeup.suggestedConcealer.darkColor.map(
+        (l) => l.concealerCode + ", " + l.concealerName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("light concealer", async () => {
+      let ld = $suggestions.makeup.suggestedConcealer.lightColor.map(
+        (l) => l.concealerCode + ", " + l.concealerName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
+    });
+    ctrl.addCommand("skin concealer", async () => {
+      let ld = $suggestions.makeup.suggestedConcealer.lightColor.map(
+        (l) => l.concealerCode + ", " + l.concealerName
+      );
+      ctrl.stop();
+      for (let l of ld) {
+        await playDialogue(l);
+      }
+      ctrl.start();
     });
     ctrl.start();
   });
@@ -530,7 +619,9 @@
             : ''} "
         >
           <img src={foundation.img} class="w-52" alt={foundation.name} />
-          <div class="text-xl newfont mt-5">{foundation.name}</div>
+          <div class="text-xl newfont mt-5">
+            {foundation.itemID + ", " + foundation.name}
+          </div>
           <div>${foundation.price}</div>
           <div>{foundation.description}</div>
         </button>
@@ -553,7 +644,9 @@
               : ''} "
           >
             <img src={concealer.img} class="w-full" alt={concealer.name} />
-            <div class="text-2xl font-bold mt-5">{concealer.name}</div>
+            <div class="text-2xl font-bold mt-5">
+              {concealer.itemID + ", " + concealer.name}
+            </div>
             <div>${concealer.price}</div>
             <div>{concealer.description}</div>
           </button>
