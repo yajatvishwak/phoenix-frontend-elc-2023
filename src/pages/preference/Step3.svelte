@@ -627,7 +627,7 @@
         </button>
       {/each}
     </div>
-    <div class="divider text-xl  my-10">Concealer</div>
+    <div class="divider text-xl  my-10">Concealers</div>
     <div class="grid grid-cols-4 overflow-auto gap-6 ">
       {#each data.concealers as concealer}
         {#if concealer}
@@ -653,7 +653,7 @@
         {/if}
       {/each}
     </div>
-    <div class="divider text-xl  my-10">Lipstick</div>
+    <div class="divider text-xl  my-10">Lipsticks</div>
     <div class="grid grid-cols-4 overflow-auto gap-6  mb-20">
       {#each data.lipsticks as lipstick}
         <button
