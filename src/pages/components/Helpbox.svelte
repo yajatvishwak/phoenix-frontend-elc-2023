@@ -17,7 +17,7 @@
 {#if helpboxOpen}
   <div class="fixed bottom-5 right-5  max-w-xs  flex flex-col gap-3 ">
     <div class="flex justify-between">
-      <div>You can say:</div>
+      <div>Use these keywords in your sentence to enable action:</div>
       <button
         class="hover:scale-90 transition-all"
         on:click={() => (helpboxOpen = false)}

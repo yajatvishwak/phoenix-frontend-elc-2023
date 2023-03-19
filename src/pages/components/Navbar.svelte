@@ -1,5 +1,6 @@
 <script>
   import { cart } from "../store/cart.store";
+  import { shutup } from "../store/shutup.store";
 </script>
 
 <div class="flex justify-between p-10 ">
@@ -33,6 +34,10 @@
         </svg>
       </div>
       <div>{$cart.length}</div>
+    </div>
+    <div class="flex gap-3 items-center">
+      <div>Mute:</div>
+      <input bind:checked={$shutup} type="checkbox" class="toggle" />
     </div>
   </div>
 </div>

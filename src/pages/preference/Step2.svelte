@@ -2,6 +2,7 @@
   // @ts-nocheck
 
   import Helpbox from "../components/Helpbox.svelte";
+  import { shutup } from "../store/shutup.store";
 
   // @ts-nocheck
 
@@ -86,7 +87,7 @@
   //         {
   //           concealerCode: "7n",
   //           concealerHex: "744326",
-  //           concealerIntensity: "Ultra Deep",
+  //           concealerIntensity: "Very Deep",
   //           concealerName: "Double Wear Radiant Concealer",
   //           concealerUndertone: "Neutral",
   //           distance: 13.043120025518256,
@@ -376,9 +377,9 @@
         );
         skintoneDialogue.push(
           "The nude lipstick that you could use everyday is the " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickCode +
             " " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickName
         );
       } else if ($suggestions.makeup.skinUndertone === "Cool") {
         skintoneDialogue.push("You have a cool undertone");
@@ -441,9 +442,9 @@
         );
         skintoneDialogue.push(
           "The nude lipstick that you could use everyday is the " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickCode +
             " " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickName
         );
       } else {
         skintoneDialogue.push("You have a neutral undertone");
@@ -506,22 +507,24 @@
         );
         skintoneDialogue.push(
           "The nude lipstick that you could use everyday is the " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickCode +
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickCode +
             " " +
-            $suggestions.makeup.suggestedLipstick.coral[0].lipstickName
+            $suggestions.makeup.suggestedLipstick.nude[0].lipstickName
         );
       }
-      for (let i = 0; i < skintoneDialogue.length; i++) {
-        await playDialogue(skintoneDialogue[i]);
-        if (i == 4) highlight("foundation");
-        if (i == 5) highlight("skinconcealer");
-        if (i == 6) highlight("darkconcealer");
-        if (i == 6) highlight("lightconcealer");
-        if (i == 7) highlight("redlip");
-        if (i == 8) highlight("mauvelip");
-        if (i == 9) highlight("pinklip");
-        if (i == 10) highlight("corallip");
-        if (i == 11) highlight("nudelip");
+      if ($shutup === false) {
+        for (let i = 0; i < skintoneDialogue.length; i++) {
+          await playDialogue(skintoneDialogue[i]);
+          if (i == 4) highlight("foundation");
+          if (i == 5) highlight("skinconcealer");
+          if (i == 6) highlight("darkconcealer");
+          if (i == 6) highlight("lightconcealer");
+          if (i == 7) highlight("redlip");
+          if (i == 8) highlight("mauvelip");
+          if (i == 9) highlight("pinklip");
+          if (i == 10) highlight("corallip");
+          if (i == 11) highlight("nudelip");
+        }
       }
 
       let ctrl = new anycontrol();

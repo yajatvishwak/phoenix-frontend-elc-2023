@@ -30,6 +30,7 @@
     "face-api.js": "^0.22.2",
     "js-confetti": "^0.11.0",
     "number-to-words": "^1.2.4",
+    "svelte-local-storage-store": "^0.4.0",
     "svelte-scrollto-element": "^0.7.0",
     "svelte-spa-router": "^3.3.0",
     "word-to-numbers": "^1.0.0"

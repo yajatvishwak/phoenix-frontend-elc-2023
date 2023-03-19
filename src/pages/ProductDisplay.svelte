@@ -17,7 +17,7 @@
   let shopData = {
     foundation: [
       {
-        name: "foundation1",
+        name: "1N1 Ivory Nude",
         price: 100,
         image:
           "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_1G5Y84_558x768_0.jpg",
@@ -26,7 +26,7 @@
         foundationDesc: "foundation1 description",
       },
       {
-        name: "foundation2",
+        name: "2N2 Buff",
         price: 200,
         image:
           "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_1G5YC8_558x768_0.jpg",
@@ -35,7 +35,7 @@
         foundationDesc: "foundation2 description",
       },
       {
-        name: "foundation3",
+        name: "3N3 Khaki",
         price: 300,
         image:
           "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_1G5Y17_558x768_0.jpg",
@@ -72,25 +72,28 @@
     ],
     concealor: [
       {
-        name: "concealor1",
+        name: "0.5N Very Light Concealor",
         price: 100,
-        image: "https:via.placeholder.com/234",
+        image:
+          "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_Y9GY21_558x768_0.jpg",
         href: "/concealor/1n1",
         concealorCode: "1n1",
         concealorDesc: "concealor1 description",
       },
       {
-        name: "concealor2",
+        name: "3N Medium",
         price: 200,
-        image: "https:via.placeholder.com/234",
+        image:
+          "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_Y9GY13_558x768_0.jpg",
         href: "/concealor/2n2",
         concealorCode: "2n2",
         concealorDesc: "concealor2 description",
       },
       {
-        name: "concealor3",
+        name: "8N Very Deep Concealor",
         price: 300,
-        image: "https:via.placeholder.com/234",
+        image:
+          "https://www.esteelauder.in/media/export/cms/products/558x768/el_sku_Y9GY22_558x768_0.jpg",
         href: "/concealor/3n3",
         concealorCode: "3n3",
         concealorDesc: "concealor3 description",

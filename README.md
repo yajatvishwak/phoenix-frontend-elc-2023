@@ -1,47 +1,26 @@
-# Svelte + Vite
+# Phoenix -- Frontend
 
-This template should help get you started developing with Svelte in Vite.
+This repo holds the Frontend code for the Phoenix accessibilty platform build for the ELC Hackathon 2023.
 
-## Recommended IDE Setup
+I've used a python flask server that exposes APIs to interact with the frontend application.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+This prototype application showcases an innovative approach to improving the accessibility of online e-commerce platforms, particularly in the beauty industry, through the integration of cutting-edge technologies such as voice control and computer vision. By leveraging these advanced tools, users can enjoy a more seamless and intuitive shopping experience that caters to a wide range of needs and preferences.
 
-## Need an official Svelte framework?
+While some common features such as sign up, sign in, and multi-user support have not been included in this prototype, this intentional omission underscores the project's primary focus on exploring novel ways to leverage AI to enhance accessibility. By prioritizing the development of a sophisticated AI bot experience, this prototype represents a significant step forward in advancing the state of the art in e-commerce accessibility and creating more inclusive online environments for all users.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+To install,
 
-## Technical considerations
+1. `npm install`
 
-**Why use this over SvelteKit?**
+Usage,
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+Visit the "/#/products" page to start the demo.
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+Other Routes and their functionality:
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+Prototype Backend building specs requirements:
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+1. Minimum of 16GB RAM
+2. Ubuntu 20.04 - (could use other platforms, but haven't tested it out)
+3. node v18.12.0
+4. Minimum 10 GB of available storage
