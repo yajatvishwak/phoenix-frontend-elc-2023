@@ -2,7 +2,7 @@
 
 This repo holds the Frontend code for the Phoenix accessibilty platform build for the ELC Hackathon 2023.
 
-I've used a python flask server that exposes APIs to interact with the frontend application.
+I've used a SvelteJS as the framework to run a mock e commerece website with Phoenix integrated. It talks to the backend using REST endpoints.
 
 This prototype application showcases an innovative approach to improving the accessibility of online e-commerce platforms, particularly in the beauty industry, through the integration of cutting-edge technologies such as voice control and computer vision. By leveraging these advanced tools, users can enjoy a more seamless and intuitive shopping experience that caters to a wide range of needs and preferences.
 
